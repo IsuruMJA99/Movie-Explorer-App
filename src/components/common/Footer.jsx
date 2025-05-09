@@ -22,27 +22,23 @@ function Footer() {
             </p>
           </div>
           
-          {/* Quick Links */}
           <div className="flex flex-col">
             <h3 className="text-white font-semibold mb-4">Quick Links</h3>
             <div className="grid grid-cols-2 gap-2">
               <Link to="/" className="text-sm hover:text-blue-400 transition-colors">Movies</Link>
-              <Link to="/tv-shows" className="text-sm hover:text-blue-400 transition-colors">TV Shows</Link>
-              <Link to="/trending" className="text-sm hover:text-blue-400 transition-colors">Trending</Link>
-              <Link to="/watchlist" className="text-sm hover:text-blue-400 transition-colors">Watchlist</Link>
-              <Link to="/about" className="text-sm hover:text-blue-400 transition-colors">About Us</Link>
-              <Link to="/contact" className="text-sm hover:text-blue-400 transition-colors">Contact</Link>
+              <Link to="/" className="text-sm hover:text-blue-400 transition-colors">TV Shows</Link>
+              <Link to="/" className="text-sm hover:text-blue-400 transition-colors">Trending</Link>
+              <Link to="/" className="text-sm hover:text-blue-400 transition-colors">Watchlist</Link>
+              <Link to="/" className="text-sm hover:text-blue-400 transition-colors">About Us</Link>
+              <Link to="/" className="text-sm hover:text-blue-400 transition-colors">Contact</Link>
             </div>
           </div>
           
-          {/* Connect Section */}
           <div className="flex flex-col">
             <h3 className="text-white font-semibold mb-4">Connect With Us</h3>
             <div className="flex space-x-5 text-xl mb-4">
               <a 
                 href="#" 
-                target="_blank" 
-                rel="noopener noreferrer"
                 className="hover:text-blue-400 transition-colors" 
                 aria-label="GitHub"
               >
@@ -50,8 +46,6 @@ function Footer() {
               </a>
               <a 
                 href="#" 
-                target="_blank" 
-                rel="noopener noreferrer"
                 className="hover:text-blue-400 transition-colors" 
                 aria-label="Twitter"
               >
@@ -59,10 +53,8 @@ function Footer() {
               </a>
               <a 
                 href="#" 
-                target="_blank" 
-                rel="noopener noreferrer"
                 className="hover:text-blue-400 transition-colors" 
-                aria-label="Instagram"
+                
               >
                 <FiInstagram />
               </a>

@@ -62,9 +62,9 @@ function MovieDetails() {
             ></div>
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
             
-            <div className="relative h-full container mx-auto px-4 flex items-end pb-8">
-              <div className="flex flex-col md:flex-row md:items-end gap-6">
-                <div className="w-[150px] md:w-[200px] rounded-lg overflow-hidden shadow-lg mt-4 md:mt-0 border-4 border-white ">
+            <div className="relative h-full container mx-auto px-4 flex items-end pb-8 max-md:mt-[25%]">
+              <div className="flex flex-col md:flex-row md:items-end gap-6 ">
+                <div className="w-[150px] md:w-[200px]  rounded-lg overflow-hidden shadow-lg mt-4 md:mt-0 border-4 border-white ">
                   {movie.poster_path ? (
                     <img 
                       src={getPosterUrl(movie.poster_path)} 
