@@ -17,14 +17,14 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault()
     setError('')
-    
+
     if (!username) {
       return setError('Username is required')
     }
     if (!password) {
       return setError('Password is required')
     }
-    
+
     const success = login(username, password)
     if (success) {
       navigate('/')
@@ -34,19 +34,22 @@ function Login() {
   }
 
   return (
-    <div className="max-w-md mx-auto py-10">
+    <div className="max-w-md mx-auto py-10 px-4 sm:px-6 lg:px-8">
       <div className="bg-white rounded-lg shadow-lg p-8">
-        <h1 className="text-2xl font-bold mb-6 text-center">Sign In to Movie Explorer</h1>
-        
+        <h1 className="text-2xl font-bold mb-6 text-center">
+          <span className="text-accent text-3xl font-bold">Movie</span>{" "}
+          <span className="text-primary text-3xl font-bold">Explorer</span>
+        </h1>
+
         {error && (
-          <div className="bg-red-100 text-red-700 p-3 rounded mb-4">
+          <div className="bg-red-100 text-red-700 p-3 rounded mb-4 text-sm">
             {error}
           </div>
         )}
-        
+
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label htmlFor="username" className="block text-sm font-medium mb-2">
+            <label htmlFor="username" className="block text-sm font-medium mb-2 text-gray-700">
               Username
             </label>
             <div className="relative">
@@ -58,14 +61,14 @@ function Login() {
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                className="input w-full pl-10"
+                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 placeholder="Enter your username"
               />
             </div>
           </div>
-          
+
           <div className="mb-6">
-            <label htmlFor="password" className="block text-sm font-medium mb-2">
+            <label htmlFor="password" className="block text-sm font-medium mb-2 text-gray-700">
               Password
             </label>
             <div className="relative">
@@ -77,20 +80,20 @@ function Login() {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="input w-full pl-10"
+                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 placeholder="Enter your password"
               />
             </div>
           </div>
-          
-          <button 
-            type="submit" 
-            className="btn btn-primary w-full py-3"
+
+          <button
+            type="submit"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 rounded-md transition duration-200"
           >
             Sign In
           </button>
         </form>
-        
+
         <div className="mt-4 text-center text-sm text-gray-600">
           <p>Demo: Enter any username and password</p>
         </div>
