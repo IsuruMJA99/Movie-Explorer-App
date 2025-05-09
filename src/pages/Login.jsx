@@ -1,15 +1,22 @@
 import { useState } from 'react'
+import { useNavigate, Navigate } from 'react-router-dom'
 import { FiUser, FiLock } from 'react-icons/fi'
+import { useAuth } from '../contexts/AuthContext'
 
 function Login() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
+  const { login, user } = useAuth()
+  const navigate = useNavigate()
 
-
+  if (user) {
+    return <Navigate to="/" />
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    setError('')
     
     if (!username) {
       return setError('Username is required')
@@ -18,11 +25,17 @@ function Login() {
       return setError('Password is required')
     }
     
+    const success = login(username, password)
+    if (success) {
+      navigate('/')
+    } else {
+      setError('Invalid login credentials')
+    }
   }
 
   return (
     <div className="max-w-md mx-auto py-10">
-      <div className="bg-gray-600 rounded-lg shadow-lg p-8">
+      <div className="bg-white rounded-lg shadow-lg p-8">
         <h1 className="text-2xl font-bold mb-6 text-center">Sign In to Movie Explorer</h1>
         
         {error && (
@@ -37,7 +50,7 @@ function Login() {
               Username
             </label>
             <div className="relative">
-              <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-200">
+              <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">
                 <FiUser />
               </span>
               <input
@@ -56,7 +69,7 @@ function Login() {
               Password
             </label>
             <div className="relative">
-              <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-200">
+              <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">
                 <FiLock />
               </span>
               <input
@@ -78,7 +91,7 @@ function Login() {
           </button>
         </form>
         
-        <div className="mt-4 text-center text-sm text-gray-600 ">
+        <div className="mt-4 text-center text-sm text-gray-600">
           <p>Demo: Enter any username and password</p>
         </div>
       </div>

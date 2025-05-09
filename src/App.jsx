@@ -3,6 +3,7 @@ import "./App.css";
 import Login from "./pages/Login";
 import Header from "./components/common/Header";
 import Footer from "./components/common/Footer";
+import Home from "./pages/Home";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Header />
         <div className="flex-grow container mx-auto px-4 py-8">
           <Routes>
+            <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
           </Routes>
         </div>
