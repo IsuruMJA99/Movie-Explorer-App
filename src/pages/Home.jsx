@@ -46,7 +46,7 @@ function Home() {
 
         {loading ? (
           <div className="min-h-[300px] flex justify-center items-center">
-            <div className="w-12 h-12 border-4 rounded-full animate-spin-slow border-primary border-t-transparent"></div>
+            <div className="w-12 h-12 border-4 rounded-full animate-spin border-primary border-t-transparent"></div>
           </div>
         ) : (
           <MovieGrid movies={trendingMovies} />

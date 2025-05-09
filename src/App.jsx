@@ -7,16 +7,18 @@ import Home from "./pages/Home";
 import Favorites from "./pages/Favorites";
 import NotFound from "./pages/NotFound";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
+import MovieDetails from "./pages/MovieDetails";
 
 function App() {
   return (
     <>
-      <div className="flex flex-col min-h-screen">
+      <div className="flex flex-col min-h-screen bg-gray-200">
         <Header />
         <div className="flex-grow container mx-auto px-4 py-8">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/movie/:id" element={<MovieDetails />} />
             <Route 
               path="/favorites" 
               element={
