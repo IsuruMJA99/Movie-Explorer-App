@@ -20,7 +20,7 @@ function Header() {
   }
   
   return (
-    <header className="bg-gradient-to-r from-blue-50 to-indigo-50 shadow-lg py-5 sticky top-0 z-50">
+    <header className="bg-gradient-to-r from-blue-100 to-indigo-50 shadow-lg py-5 sticky top-0 z-50">
       <div className="container mx-auto px-4 flex flex-wrap items-center justify-between">
         <Link to="/" className="flex items-center space-x-2">
           <span className="text-accent text-3xl font-bold">Movie</span>

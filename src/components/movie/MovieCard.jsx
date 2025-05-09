@@ -14,14 +14,14 @@ function MovieCard({ movie }) {
   }
 
   return (
-    <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col overflow-hidden border border-gray-100 group">
+    <div className="bg-gray-50 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col overflow-hidden border border-gray-100 group">
       <div className="relative overflow-hidden">
         <Link to={`/movie/${movie.id}`}>
           {movie.poster_path ? (
             <img 
               src={getPosterUrl(movie.poster_path)} 
               alt={movie.title} 
-              className="w-full h-[300px] object-cover transform group-hover:scale-105 transition-transform duration-300"
+              className="w-full h-[300px] object-fill transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
             />
           ) : (
