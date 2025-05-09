@@ -37,7 +37,7 @@ function Login() {
               Username
             </label>
             <div className="relative">
-              <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">
+              <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-200">
                 <FiUser />
               </span>
               <input
@@ -56,7 +56,7 @@ function Login() {
               Password
             </label>
             <div className="relative">
-              <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">
+              <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-200">
                 <FiLock />
               </span>
               <input
@@ -78,7 +78,7 @@ function Login() {
           </button>
         </form>
         
-        <div className="mt-4 text-center text-sm text-gray-600 dark:text-gray-400">
+        <div className="mt-4 text-center text-sm text-gray-600 ">
           <p>Demo: Enter any username and password</p>
         </div>
       </div>

@@ -1,5 +1,22 @@
 @import "tailwindcss";
 
+@theme {
+  --color-primary: #3B82F6;
+  --color-secondary: #0F172A;
+  --color-accent: #EF4444;
+
+  --color-dark-100: #1E293B;
+  --color-dark-200: #0F172A;
+  --color-dark-300: #020617;
+
+  --color-light-100: #FFFFFF;
+  --color-light-200: #F8FAFC;
+  --color-light-300: #F1F5F9;
+
+  --animation-spin-slow: spin 3s linear infinite;
+  --animation-pulse-slow: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
