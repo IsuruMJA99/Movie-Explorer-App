@@ -1,13 +1,16 @@
 import { createContext, useContext, useState, useEffect } from 'react'
-import { fetchTrendingMovies } from '../services/api'
+import { fetchTrendingMovies, searchMovies } from '../services/api'
 
 const MoviesContext = createContext()
 
 export function MoviesProvider({ children }) {
   const [trendingMovies, setTrendingMovies] = useState([])
+  const [searchResults, setSearchResults] = useState([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
-  
+  const [lastSearch, setLastSearch] = useState(() => {
+    return localStorage.getItem('lastSearch') || ''
+  })
   const [favorites, setFavorites] = useState(() => {
     const savedFavorites = localStorage.getItem('favorites')
     return savedFavorites ? JSON.parse(savedFavorites) : []
@@ -17,6 +20,11 @@ export function MoviesProvider({ children }) {
     localStorage.setItem('favorites', JSON.stringify(favorites))
   }, [favorites])
 
+  useEffect(() => {
+    if (lastSearch) {
+      localStorage.setItem('lastSearch', lastSearch)
+    }
+  }, [lastSearch])
 
   const loadTrendingMovies = async () => {
     try {
@@ -27,6 +35,23 @@ export function MoviesProvider({ children }) {
     } catch (err) {
       setError(err.message)
       setTrendingMovies([])
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  const searchForMovies = async (query) => {
+    if (!query) return
+    
+    try {
+      setLoading(true)
+      setError(null)
+      setLastSearch(query)
+      const data = await searchMovies(query)
+      setSearchResults(data.results || [])
+    } catch (err) {
+      setError(err.message)
+      setSearchResults([])
     } finally {
       setLoading(false)
     }
@@ -51,10 +76,13 @@ export function MoviesProvider({ children }) {
   return (
     <MoviesContext.Provider value={{
       trendingMovies,
+      searchResults,
       loading,
       error,
+      lastSearch,
       favorites,
       loadTrendingMovies,
+      searchForMovies,
       toggleFavorite,
       isFavorite
     }}>

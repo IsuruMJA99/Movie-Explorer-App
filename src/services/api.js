@@ -56,3 +56,20 @@ export const fetchMovieDetails = async (movieId) => {
   }
 }
 
+// Search movies
+export const searchMovies = async (query) => {
+  try {
+    const response = await tmdbApi.get('/search/movie', {
+      params: { query },
+    })
+    if (!response.data || !response.data.results) {
+      throw new Error('Invalid response format')
+    }
+    return response.data
+  } catch (error) {
+    if (error.response?.status === 401) {
+      throw new Error('Invalid API key. Please check your TMDb API key.')
+    }
+    throw new Error('Failed to search movies. Please try again later.')
+  }
+}

@@ -47,21 +47,21 @@ function Header() {
               <>
                 <Link
                   to="/favorites"
-                  className="flex items-center space-x-2 text-gray-700 hover:text-blue-600 transition duration-300 font-medium"
+                  className="flex items-center space-x-2 text-gray-700  hover:bg-gray-300 hover:text-black p-2 rounded transition duration-300 font-medium"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <FiHeart size={20} className="text-pink-500" />
                   <span>Favorites</span>
                 </Link>
                 
-                <div className="flex items-center space-x-2 text-gray-700 font-medium">
-                  <FiUser size={20} className="text-indigo-600" />
+                <div className="flex items-center space-x-2 text-gray-700 hover:bg-gray-300 hover:text-black p-2 rounded transition duration-300 ">
+                  <FiUser size={20} className="text-indigo-600 " />
                   <span>{user.username}</span>
                 </div>
                 
                 <button
                   onClick={handleLogout}
-                  className="flex items-center space-x-2 text-red-500 hover:text-red-600 transition duration-300 font-medium"
+                  className="flex items-center space-x-2 text-red-500 hover:bg-red-500 hover:text-white p-2 rounded transition duration-300 "
                 >
                   <FiLogOut size={20} />
                   <span>Logout</span>
