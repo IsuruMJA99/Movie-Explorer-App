@@ -28,8 +28,6 @@ Welcome to the **Movie Explorer App**, a responsive web application that allows 
   - Trending Movies
   - Search Results
   - Movie Details
-- Graceful API error handling.
-- Infinite scroll for search results or a “Load More” button (optional UX improvement).
 
 ### 🧠 State Management
 - Global movie state handled using React Context API.
